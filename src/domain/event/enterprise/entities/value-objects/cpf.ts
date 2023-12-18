@@ -1,7 +1,7 @@
 export class Cpf {
   public value: string
 
-  private constructor(value: string) {
+  constructor(value: string) {
     this.value = value.replace(/\D/g, '')
     this.validate()
   }
