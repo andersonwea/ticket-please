@@ -60,13 +60,14 @@ export class Event extends Entity<EventProps> {
   static create(
     props: Optional<
       EventProps,
-      'isPublished' | 'totalSpots' | 'totalSpotsLeft'
+      'description' | 'isPublished' | 'totalSpots' | 'totalSpotsLeft'
     >,
     id?: UniqueEntityId,
   ) {
     const event = new Event(
       {
         ...props,
+        description: props.description ?? null,
         isPublished: props.isPublished ?? false,
         totalSpots: props.totalSpots ?? 0,
         totalSpotsLeft: props.totalSpotsLeft ?? props.totalSpots ?? 0,
