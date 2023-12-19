@@ -1,5 +1,4 @@
 import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
-import { makePartner } from '@/test/factories/make-partner'
 import { ListUpcomingEventsUseCase } from './list-upcoming-events'
 import { makeEvent } from '@/test/factories/make-event'
 

@@ -17,4 +17,14 @@ export class InMemoryEventsRepository implements EventsRepository {
 
     return events
   }
+
+  async findById(id: string): Promise<Event | null> {
+    const event = this.items.find((item) => item.id.toString() === id)
+
+    if (!event) {
+      return null
+    }
+
+    return event
+  }
 }
