@@ -1,3 +1,4 @@
+import { PaginationParams } from '@/core/repositories/pagination-params'
 import { EventsRepository } from '@/domain/event/application/repositories/events-repository'
 import { Event } from '@/domain/event/enterprise/entities/event'
 
@@ -6,5 +7,14 @@ export class InMemoryEventsRepository implements EventsRepository {
 
   async create(event: Event): Promise<void> {
     this.items.push(event)
+  }
+
+  async findManyUpcoming({ page }: PaginationParams): Promise<Event[]> {
+    const events = this.items
+      .filter((event) => event.date > new Date())
+      .sort((a, b) => a.date.getTime() - b.date.getTime())
+      .slice((page - 1) * 12, page * 12)
+
+    return events
   }
 }
