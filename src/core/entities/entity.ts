@@ -20,4 +20,8 @@ export class Entity<Props> {
 
     return false
   }
+
+  public get id(): UniqueEntityId {
+    return this._id
+  }
 }
