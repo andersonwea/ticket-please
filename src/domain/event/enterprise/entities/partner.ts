@@ -1,8 +1,15 @@
 import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
+import { Event } from './event'
 
 interface PartnerProps {
   name: string
+}
+
+interface CreateEventProps {
+  name: string
+  description: string | null
+  date: Date
 }
 
 export class Partner extends Entity<PartnerProps> {
@@ -12,6 +19,18 @@ export class Partner extends Entity<PartnerProps> {
 
   set name(name: string) {
     this.name = name
+  }
+
+  createEvent(props: CreateEventProps, id?: UniqueEntityId) {
+    const event = Event.create(
+      {
+        ...props,
+        partnerId: this.id,
+      },
+      id,
+    )
+
+    return event
   }
 
   static create(props: PartnerProps, id?: UniqueEntityId) {
