@@ -1,6 +1,7 @@
 import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
+import { EventSectionList } from './event-section-list'
 
 export interface EventProps {
   name: string
@@ -10,6 +11,7 @@ export interface EventProps {
   totalSpots: number
   totalSpotsLeft: number
   partnerId: UniqueEntityId
+  sections: EventSectionList
 }
 
 export class Event extends Entity<EventProps> {
@@ -55,6 +57,20 @@ export class Event extends Entity<EventProps> {
 
   get partnerId() {
     return this.props.partnerId
+  }
+
+  get sections() {
+    return this.props.sections
+  }
+
+  set sections(sections: EventSectionList) {
+    const totalSpots = sections
+      .getItems()
+      .reduce((acc, curr) => acc + curr.totalSpots, 0)
+
+    this.props.sections = sections
+    this.props.totalSpots += totalSpots
+    this.props.totalSpotsLeft += totalSpots
   }
 
   static create(
