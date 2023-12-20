@@ -1,6 +1,7 @@
 import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Event } from './event'
+import { EventSectionList } from './event-section-list'
 
 interface PartnerProps {
   name: string
@@ -26,6 +27,7 @@ export class Partner extends Entity<PartnerProps> {
       {
         ...props,
         partnerId: this.id,
+        sections: new EventSectionList(),
       },
       id,
     )
