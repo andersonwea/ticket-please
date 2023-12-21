@@ -5,6 +5,12 @@ import { EventSectionsRepository } from '../repositories/event-sections-reposito
 import { EventsRepository } from '../repositories/events-repository'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { EventSectionList } from '../../enterprise/entities/event-section-list'
+import { Spot } from '../../enterprise/entities/spot'
+import {
+  SpotSection,
+  SpotSectionProps,
+} from '../../enterprise/entities/spot-section'
+import { SpotSectionList } from '../../enterprise/entities/spot-section-list'
 
 interface CreateEventSectionUseCaseRequest {
   name: string
@@ -51,8 +57,20 @@ export class CreateEventSectionUseCase {
       eventId: new UniqueEntityId(eventId),
     })
 
-    const eventSectionList = new EventSectionList(currentEventSections)
+    const newSpots: Spot<SpotSectionProps>[] = []
 
+    for (let i = 0; i < eventSection.totalSpots; i++) {
+      const spot = SpotSection.create({
+        sectionId: eventSection.id,
+      })
+
+      newSpots.push(spot)
+    }
+
+    const eventSectionList = new EventSectionList(currentEventSections)
+    const spotSectionList = new SpotSectionList(newSpots)
+
+    eventSection.spots = spotSectionList
     eventSectionList.update([eventSection])
     event.sections = eventSectionList
 

@@ -37,6 +37,9 @@ describe('Create Event Section Use Case', () => {
         totalSpots: 50,
       }),
     )
+    expect(
+      inMemoryEventSectionsRepository.items[0].spots.getItems(),
+    ).toHaveLength(50)
     expect(inMemoryEventsRepository.items[0].sections.getItems()).toHaveLength(
       1,
     )

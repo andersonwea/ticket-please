@@ -1,10 +1,14 @@
 import { Entity } from '@/core/entities/entity'
+import { SpotSectionList } from './spot-section-list'
+import { SpotSection, SpotSectionProps } from './spot-section'
+import { Spot } from './spot'
 
 export interface SectionProps {
   name: string
   description: string | null
   totalSpots: number
   price: number
+  spots: SpotSectionList
 }
 
 export abstract class Section<
@@ -36,5 +40,13 @@ export abstract class Section<
 
   set price(price: number) {
     this.props.price = price
+  }
+
+  get spots() {
+    return this.props.spots
+  }
+
+  set spots(spots: SpotSectionList) {
+    this.props.spots = spots
   }
 }
