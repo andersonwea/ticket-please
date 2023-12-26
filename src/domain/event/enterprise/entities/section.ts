@@ -34,6 +34,10 @@ export abstract class Section<
     return this.props.totalSpots
   }
 
+  set totalSpots(totalSpots: number) {
+    this.props.totalSpots = totalSpots
+  }
+
   get price() {
     return this.props.price
   }

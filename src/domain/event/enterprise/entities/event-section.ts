@@ -3,7 +3,7 @@ import { Section, SectionProps } from './section'
 import { Optional } from '@/core/types/optional'
 import { SpotSectionList } from './spot-section-list'
 
-interface EventSectionProps extends SectionProps {
+export interface EventSectionProps extends SectionProps {
   eventId: UniqueEntityId
 }
 
