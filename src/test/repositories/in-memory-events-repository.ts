@@ -12,6 +12,7 @@ export class InMemoryEventsRepository implements EventsRepository {
   async findManyUpcoming({ page }: PaginationParams): Promise<Event[]> {
     const events = this.items
       .filter((event) => event.date > new Date())
+      .filter((event) => event.isPublished)
       .sort((a, b) => a.date.getTime() - b.date.getTime())
       .slice((page - 1) * 12, page * 12)
 

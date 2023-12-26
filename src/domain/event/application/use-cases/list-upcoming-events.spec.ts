@@ -11,17 +11,21 @@ describe('List Upcoming Events Use Case', () => {
     sut = new ListUpcomingEventsUseCase(inMemoryEventsRepository)
   })
 
-  it('should be able to list upcoming events', async () => {
+  it('should be able to list upcoming published events', async () => {
     await inMemoryEventsRepository.create(
-      makeEvent({ date: new Date(2024, 0, 15) }),
+      makeEvent({ date: new Date(2024, 0, 15), isPublished: true }),
     )
 
     await inMemoryEventsRepository.create(
-      makeEvent({ date: new Date(2024, 0, 10) }),
+      makeEvent({ date: new Date(2024, 0, 10), isPublished: true }),
     )
 
     await inMemoryEventsRepository.create(
-      makeEvent({ date: new Date(2023, 11, 15) }),
+      makeEvent({ date: new Date(2023, 11, 15), isPublished: true }),
+    )
+
+    await inMemoryEventsRepository.create(
+      makeEvent({ date: new Date(2023, 11, 15), isPublished: false }),
     )
 
     const result = await sut.execute({
@@ -39,6 +43,7 @@ describe('List Upcoming Events Use Case', () => {
       await inMemoryEventsRepository.create(
         makeEvent({
           date: new Date(2024, 0, i),
+          isPublished: true,
         }),
       )
     }
