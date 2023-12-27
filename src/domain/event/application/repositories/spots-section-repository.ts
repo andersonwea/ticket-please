@@ -1,5 +1,5 @@
 import { SpotSection } from '../../enterprise/entities/spot-section'
 
-export interface SpotsSectionsRepository {
+export interface SpotsSectionRepository {
   findManyBySectionId(sectionId: string): Promise<SpotSection[]>
 }

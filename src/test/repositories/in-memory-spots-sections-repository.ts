@@ -1,7 +1,7 @@
-import { SpotsSectionsRepository } from '@/domain/event/application/repositories/spots-section-repository'
+import { SpotsSectionRepository } from '@/domain/event/application/repositories/spots-section-repository'
 import { SpotSection } from '@/domain/event/enterprise/entities/spot-section'
 
-export class InMemorySpotsSectionRepository implements SpotsSectionsRepository {
+export class InMemorySpotsSectionRepository implements SpotsSectionRepository {
   items: SpotSection[] = []
 
   async findManyBySectionId(sectionId: string): Promise<SpotSection[]> {
