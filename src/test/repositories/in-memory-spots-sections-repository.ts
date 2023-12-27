@@ -11,4 +11,14 @@ export class InMemorySpotsSectionRepository implements SpotsSectionRepository {
 
     return spotsSection
   }
+
+  async findManyPublishedBySectionId(
+    sectionId: string,
+  ): Promise<SpotSection[]> {
+    const spotsSection = this.items.filter(
+      (item) => item.id.toString() === sectionId && item.isPublished,
+    )
+
+    return spotsSection
+  }
 }
