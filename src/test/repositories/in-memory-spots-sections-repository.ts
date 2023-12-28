@@ -4,9 +4,13 @@ import { SpotSection } from '@/domain/event/enterprise/entities/spot-section'
 export class InMemorySpotsSectionRepository implements SpotsSectionRepository {
   items: SpotSection[] = []
 
+  async create(spotSection: SpotSection): Promise<void> {
+    this.items.push(spotSection)
+  }
+
   async findManyBySectionId(sectionId: string): Promise<SpotSection[]> {
     const spotsSection = this.items.filter(
-      (item) => item.id.toString() === sectionId,
+      (item) => item.sectionId.toString() === sectionId,
     )
 
     return spotsSection
@@ -16,7 +20,7 @@ export class InMemorySpotsSectionRepository implements SpotsSectionRepository {
     sectionId: string,
   ): Promise<SpotSection[]> {
     const spotsSection = this.items.filter(
-      (item) => item.id.toString() === sectionId && item.isPublished,
+      (item) => item.sectionId.toString() === sectionId && item.isPublished,
     )
 
     return spotsSection
