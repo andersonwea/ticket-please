@@ -1,6 +1,6 @@
-import { Section } from '../../enterprise/entities/section'
+import { Section, SectionProps } from '../../enterprise/entities/section'
 
 export interface SectionsRepository {
-  create(section: Section): Promise<void>
-  findManyByEventId(id: string): Promise<Section[]>
+  create(section: Section<SectionProps>): Promise<void>
+  findManyByEventId(id: string): Promise<Section<SectionProps>[]>
 }
