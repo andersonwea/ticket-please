@@ -7,6 +7,10 @@ export interface SpotSectionProps extends SpotProps {
 }
 
 export class SpotSection extends Spot<SpotSectionProps> {
+  get sectionId() {
+    return this.props.sectionId
+  }
+
   static create(
     props: Optional<
       SpotSectionProps,
