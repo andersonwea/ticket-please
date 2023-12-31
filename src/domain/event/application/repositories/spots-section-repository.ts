@@ -4,4 +4,5 @@ export interface SpotsSectionRepository {
   create(spotSection: SpotSection): Promise<void>
   findManyBySectionId(sectionId: string): Promise<SpotSection[]>
   findManyPublishedBySectionId(sectionId: string): Promise<SpotSection[]>
+  saveMany(spotSections: SpotSection[]): Promise<void>
 }

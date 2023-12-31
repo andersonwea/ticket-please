@@ -25,4 +25,10 @@ export class InMemorySpotsSectionRepository implements SpotsSectionRepository {
 
     return spotsSection
   }
+
+  async saveMany(spotSections: SpotSection[]): Promise<void> {
+    for (const spotSection of spotSections) {
+      this.items.push(spotSection)
+    }
+  }
 }
