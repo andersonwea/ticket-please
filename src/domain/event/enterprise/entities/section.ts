@@ -1,7 +1,5 @@
 import { Entity } from '@/core/entities/entity'
 import { SpotSectionList } from './spot-section-list'
-import { SpotSection, SpotSectionProps } from './spot-section'
-import { Spot } from './spot'
 
 export interface SectionProps {
   name: string
