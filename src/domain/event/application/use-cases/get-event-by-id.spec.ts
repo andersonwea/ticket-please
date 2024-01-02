@@ -1,6 +1,6 @@
-import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
+import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
 import { GetEventByIdUseCase } from './get-event-by-id'
-import { makeEvent } from '@/test/factories/make-event'
+import { makeEvent } from 'test/factories/make-event'
 
 let inMemoryEventsRepository: InMemoryEventsRepository
 let sut: GetEventByIdUseCase

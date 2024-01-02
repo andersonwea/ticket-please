@@ -1,6 +1,6 @@
-import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
+import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
 import { EditEventUseCase } from './edit-event'
-import { makeEvent } from '@/test/factories/make-event'
+import { makeEvent } from 'test/factories/make-event'
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 import { expect } from 'vitest'
 

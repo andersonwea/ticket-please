@@ -1,11 +1,11 @@
-import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
-import { makeEvent } from '@/test/factories/make-event'
+import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
+import { makeEvent } from 'test/factories/make-event'
 import { expect } from 'vitest'
-import { InMemorySpotsSectionRepository } from '@/test/repositories/in-memory-spots-sections-repository'
+import { InMemorySpotsSectionRepository } from 'test/repositories/in-memory-spots-sections-repository'
 import { PublishAllSpotsSectionUseCase } from './publish-all-spots-section'
-import { InMemoryEventSectionsRepository } from '@/test/repositories/in-memory-event-sections-repository'
-import { makeEventSection } from '@/test/factories/make-event-section'
-import { makeSpotSection } from '@/test/factories/make-spots-section'
+import { InMemoryEventSectionsRepository } from 'test/repositories/in-memory-event-sections-repository'
+import { makeEventSection } from 'test/factories/make-event-section'
+import { makeSpotSection } from 'test/factories/make-spots-section'
 
 let inMemoryEventsRepository: InMemoryEventsRepository
 let inMemoryEventSectionsRepository: InMemoryEventSectionsRepository

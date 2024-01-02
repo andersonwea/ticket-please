@@ -1,7 +1,7 @@
-import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
+import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
 import { CreateEventUseCase } from './create-event'
-import { InMemoryPartnersRepository } from '@/test/repositories/in-memory-partners-repository'
-import { makePartner } from '@/test/factories/make-partner'
+import { InMemoryPartnersRepository } from 'test/repositories/in-memory-partners-repository'
+import { makePartner } from 'test/factories/make-partner'
 
 let inMemoryEventsRepository: InMemoryEventsRepository
 let inMemoryPartnersRepository: InMemoryPartnersRepository
