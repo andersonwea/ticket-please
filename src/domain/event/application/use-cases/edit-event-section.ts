@@ -4,13 +4,9 @@ import { ResourceNotFoundError } from '@/core/errors/errors/resourse-not-found-e
 import { EventSection } from '../../enterprise/entities/event-section'
 import { EventSectionsRepository } from '../repositories/event-sections-repository'
 import { EventsRepository } from '../repositories/events-repository'
-import { SpotsSectionsRepository } from '../repositories/spots-section-repository'
+import { SpotsSectionRepository } from '../repositories/spots-section-repository'
 import { SpotSectionList } from '../../enterprise/entities/spot-section-list'
-import { Spot } from '../../enterprise/entities/spot'
-import {
-  SpotSection,
-  SpotSectionProps,
-} from '../../enterprise/entities/spot-section'
+import { SpotSection } from '../../enterprise/entities/spot-section'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { EventSectionList } from '../../enterprise/entities/event-section-list'
 
@@ -34,7 +30,7 @@ export class EditEventSectionUseCase {
   constructor(
     private eventSectionsRepository: EventSectionsRepository,
     private eventsRepository: EventsRepository,
-    private spotsSectionRepository: SpotsSectionsRepository,
+    private spotsSectionRepository: SpotsSectionRepository,
   ) {}
 
   async execute({
@@ -72,7 +68,7 @@ export class EditEventSectionUseCase {
     const eventSectionsList = new EventSectionList(currentEventSections)
     const spotsSectionList = new SpotSectionList(currentSpots)
 
-    const spots: Spot<SpotSectionProps>[] = []
+    const spots: SpotSection[] = []
 
     for (let i = 0; i < totalSpots; i++) {
       const spot = SpotSection.create({
