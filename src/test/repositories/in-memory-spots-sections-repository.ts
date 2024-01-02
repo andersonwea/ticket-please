@@ -8,6 +8,16 @@ export class InMemorySpotsSectionRepository implements SpotsSectionRepository {
     this.items.push(spotSection)
   }
 
+  async findById(id: string): Promise<SpotSection | null> {
+    const spotSection = this.items.find((item) => item.id.toString() === id)
+
+    if (!spotSection) {
+      return null
+    }
+
+    return spotSection
+  }
+
   async findManyBySectionId(sectionId: string): Promise<SpotSection[]> {
     const spotsSection = this.items.filter(
       (item) => item.sectionId.toString() === sectionId,

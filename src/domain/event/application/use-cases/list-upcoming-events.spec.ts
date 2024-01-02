@@ -1,6 +1,7 @@
 import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
 import { ListUpcomingEventsUseCase } from './list-upcoming-events'
 import { makeEvent } from '@/test/factories/make-event'
+import { faker } from '@faker-js/faker'
 
 let inMemoryEventsRepository: InMemoryEventsRepository
 let sut: ListUpcomingEventsUseCase
@@ -42,7 +43,7 @@ describe('List Upcoming Events Use Case', () => {
     for (let i = 1; i <= 14; i++) {
       await inMemoryEventsRepository.create(
         makeEvent({
-          date: new Date(2024, 0, i),
+          date: faker.date.future(),
           isPublished: true,
         }),
       )

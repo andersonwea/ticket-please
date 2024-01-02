@@ -2,7 +2,7 @@ import { Entity } from '@/core/entities/entity'
 import { Cpf } from './value-objects/cpf'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
-interface CustomerProps {
+export interface CustomerProps {
   name: string
   cpf: Cpf
 }

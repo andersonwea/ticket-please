@@ -2,7 +2,7 @@ import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 
-enum OrderStatus {
+export enum OrderStatus {
   PENDING,
   PAID,
   CANCELLED,
