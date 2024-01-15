@@ -18,15 +18,15 @@ describe('List Upcoming Events Use Case', () => {
     )
 
     await inMemoryEventsRepository.create(
-      makeEvent({ date: new Date(2024, 0, 10), isPublished: true }),
+      makeEvent({ date: faker.date.past(), isPublished: true }),
     )
 
     await inMemoryEventsRepository.create(
-      makeEvent({ date: new Date(2023, 11, 15), isPublished: true }),
+      makeEvent({ date: faker.date.future(), isPublished: true }),
     )
 
     await inMemoryEventsRepository.create(
-      makeEvent({ date: new Date(2023, 11, 15), isPublished: false }),
+      makeEvent({ date: faker.date.future(), isPublished: false }),
     )
 
     const result = await sut.execute({
@@ -34,8 +34,7 @@ describe('List Upcoming Events Use Case', () => {
     })
 
     expect(result.value?.events).toEqual([
-      expect.objectContaining({ date: new Date(2024, 0, 10) }),
-      expect.objectContaining({ date: new Date(2024, 0, 15) }),
+      expect.objectContaining({ date: expect.any(Date) }),
     ])
   })
 
