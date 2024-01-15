@@ -1,7 +1,8 @@
-import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 import { EventSectionList } from './event-section-list'
+import { AggregateRoot } from '@/core/entities/aggregate-root'
+import { EventChangedDateEvent } from '../events/event-changed-date-event'
 
 export interface EventProps {
   name: string
@@ -14,7 +15,7 @@ export interface EventProps {
   sections: EventSectionList
 }
 
-export class Event extends Entity<EventProps> {
+export class Event extends AggregateRoot<EventProps> {
   get name() {
     return this.props.name
   }
@@ -36,6 +37,10 @@ export class Event extends Entity<EventProps> {
   }
 
   set date(date: Date) {
+    if (date !== this.props.date) {
+      this.addDomainEvent(new EventChangedDateEvent(this, date))
+    }
+
     this.props.date = date
   }
 
