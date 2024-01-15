@@ -1,6 +1,7 @@
-import { Entity } from '@/core/entities/entity'
+import { AggregateRoot } from '@/core/entities/aggregate-root'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
+import { EventOrderPaidEvent } from '../events/event-order-paid-event'
 
 export enum OrderStatus {
   PENDING,
@@ -15,7 +16,7 @@ interface OrderProps {
   status: OrderStatus
 }
 
-export class Order extends Entity<OrderProps> {
+export class Order extends AggregateRoot<OrderProps> {
   get customerId() {
     return this.props.customerId
   }
@@ -33,6 +34,10 @@ export class Order extends Entity<OrderProps> {
   }
 
   set status(status: OrderStatus) {
+    if (status === OrderStatus.PAID) {
+      this.addDomainEvent(new EventOrderPaidEvent(this))
+    }
+
     this.props.status = status
   }
 
