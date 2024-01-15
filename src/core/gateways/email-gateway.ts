@@ -1,5 +1,5 @@
 export interface EmailProps {
-  recipientId: string
+  to: string
   subject: string
   content: string
 }

@@ -3,7 +3,7 @@ import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 
 export interface EmailProps {
-  recipientId: UniqueEntityId
+  to: string
   subject: string
   content: string
   createdAt: Date
@@ -12,7 +12,7 @@ export interface EmailProps {
 
 export class Email extends Entity<EmailProps> {
   get recipientId() {
-    return this.props.recipientId
+    return this.props.to
   }
 
   get subject() {
