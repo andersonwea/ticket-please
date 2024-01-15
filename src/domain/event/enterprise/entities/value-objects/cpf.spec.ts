@@ -1,4 +1,4 @@
-import { Cpf, InvalidCpfError } from './cpf'
+import { Cpf } from './cpf'
 
 describe('Cpf', () => {
   it('should be able to create a valid cpf', () => {
