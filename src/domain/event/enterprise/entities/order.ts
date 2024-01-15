@@ -9,7 +9,7 @@ export enum OrderStatus {
   CANCELLED,
 }
 
-interface OrderProps {
+export interface OrderProps {
   customerId: UniqueEntityId
   amount: number
   sectionSpotId: UniqueEntityId

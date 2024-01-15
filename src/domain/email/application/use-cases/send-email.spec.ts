@@ -16,7 +16,7 @@ describe('Send Email Use Case', () => {
 
   it('should be able to send email', async () => {
     const result = await sut.execute({
-      recipientId: '1',
+      to: 'email do cliente',
       subject: 'Titulo do email',
       content: 'Conteúdo da email',
     })
