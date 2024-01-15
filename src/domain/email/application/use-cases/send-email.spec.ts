@@ -1,6 +1,6 @@
 import { EmailGateway } from '@/core/gateways/email-gateway'
 import { SendEmailUseCase } from './send-email'
-import { InMemoryEmailsRepository } from 'test/repositories/in-memory-emails-repository'
+import { InMemoryEmailsRepository } from '@/test/repositories/in-memory-emails-repository'
 import { MailtrapGateway } from '@/infra/gateways/mailtrap-gateway'
 
 let inMemoryEmailsRepository: InMemoryEmailsRepository

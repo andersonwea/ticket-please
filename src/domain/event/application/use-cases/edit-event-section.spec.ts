@@ -1,9 +1,9 @@
-import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
-import { InMemoryEventSectionsRepository } from 'test/repositories/in-memory-event-sections-repository'
-import { makeEvent } from 'test/factories/make-event'
-import { InMemorySpotsSectionRepository } from 'test/repositories/in-memory-spots-sections-repository'
+import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
+import { InMemoryEventSectionsRepository } from '@/test/repositories/in-memory-event-sections-repository'
+import { makeEvent } from '@/test/factories/make-event'
+import { InMemorySpotsSectionRepository } from '@/test/repositories/in-memory-spots-sections-repository'
 import { EditEventSectionUseCase } from './edit-event-section'
-import { makeEventSection } from 'test/factories/make-event-section'
+import { makeEventSection } from '@/test/factories/make-event-section'
 
 let inMemoryEventSectionsRepository: InMemoryEventSectionsRepository
 let inMemoryEventsRepository: InMemoryEventsRepository

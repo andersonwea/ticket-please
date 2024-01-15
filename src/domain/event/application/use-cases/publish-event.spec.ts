@@ -1,5 +1,5 @@
-import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
-import { makeEvent } from 'test/factories/make-event'
+import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
+import { makeEvent } from '@/test/factories/make-event'
 import { expect } from 'vitest'
 import { PublishEventUseCase } from './publish-event'
 

@@ -1,6 +1,6 @@
-import { InMemoryEventsRepository } from 'test/repositories/in-memory-events-repository'
+import { InMemoryEventsRepository } from '@/test/repositories/in-memory-events-repository'
 import { ListUpcomingEventsUseCase } from './list-upcoming-events'
-import { makeEvent } from 'test/factories/make-event'
+import { makeEvent } from '@/test/factories/make-event'
 import { faker } from '@faker-js/faker'
 
 let inMemoryEventsRepository: InMemoryEventsRepository
