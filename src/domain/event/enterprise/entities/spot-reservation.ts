@@ -2,8 +2,9 @@ import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 
-interface SpotReservationProps {
+export interface SpotReservationProps {
   spotId: UniqueEntityId
+  eventId: UniqueEntityId
   customerId: UniqueEntityId
   reservationDate: Date
 }
@@ -19,6 +20,14 @@ export class SpotReservation extends Entity<SpotReservationProps> {
 
   set customerId(customerId: UniqueEntityId) {
     this.props.customerId = customerId
+  }
+
+  get eventId() {
+    return this.props.eventId
+  }
+
+  set eventId(eventId: UniqueEntityId) {
+    this.props.eventId = eventId
   }
 
   get reservationDate() {

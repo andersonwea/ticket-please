@@ -95,6 +95,7 @@ export class CreateOrderUseCase {
       const spotReservation = SpotReservation.create({
         customerId: new UniqueEntityId(customerId),
         spotId: new UniqueEntityId(spotSectionId),
+        eventId: new UniqueEntityId(eventId),
       })
 
       await this.spotsReservation.create(spotReservation)
