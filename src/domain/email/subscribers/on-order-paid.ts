@@ -25,12 +25,11 @@ export class OnOrderPaid implements EventHandler {
     )
 
     if (customer) {
-      const email = await this.sendEmailUseCase.execute({
+      await this.sendEmailUseCase.execute({
         to: customer.email.value,
         subject: 'Pedido pago',
         content: `Olá ${customer.name}, seu pedido foi pago`,
       })
-      console.log(email)
     }
   }
 }
