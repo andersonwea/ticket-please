@@ -2,7 +2,7 @@ import { DomainEvent } from '@/core/events/domain-event'
 import { Event } from '../entities/event'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
-export class EventChangedDateEvent implements DomainEvent {
+export class EventDateChangedEvent implements DomainEvent {
   public ocurredAt: Date
   public event: Event
   public date: Date

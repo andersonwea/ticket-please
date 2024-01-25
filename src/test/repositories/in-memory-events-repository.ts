@@ -1,3 +1,4 @@
+import { DomainEvents } from '@/core/events/domain-events'
 import { PaginationParams } from '@/core/repositories/pagination-params'
 import { EventsRepository } from '@/domain/event/application/repositories/events-repository'
 import { Event } from '@/domain/event/enterprise/entities/event'
@@ -33,5 +34,7 @@ export class InMemoryEventsRepository implements EventsRepository {
     const itemIndex = this.items.findIndex((item) => item.id === event.id)
 
     this.items[itemIndex] = event
+
+    DomainEvents.dispatchEventsForAggregate(event.id)
   }
 }
