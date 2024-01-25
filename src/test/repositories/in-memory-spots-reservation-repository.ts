@@ -6,6 +6,14 @@ export class InMemorySpotsReservationRepository
 {
   items: SpotReservation[] = []
 
+  async findAllByEventId(eventId: string): Promise<SpotReservation[]> {
+    const reservations = this.items.filter(
+      (reservation) => reservation.eventId.toString() === eventId,
+    )
+
+    return reservations
+  }
+
   async create(spotReservation: SpotReservation): Promise<void> {
     this.items.push(spotReservation)
   }
